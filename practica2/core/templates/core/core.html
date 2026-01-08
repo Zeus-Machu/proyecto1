@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Inico</title>
+
+        
+</head>
+<body>
+    <h1>Bienvenido a la calculadora</h1>
+    <a href="{% url 'addon_suma:sumar' %}">Ir a Suma</a><br>
+    <a href="{% url 'addon_resta:restar' %}">Ir a Resta</a><br>
+    <a href="{% url 'addon_div:divicion' %}">Ir a Division</a><br>
+    <a href="{% url 'addon_multi:multiplicacion' %}">Ir a Multiplicacion</a><br>
+    <a href="{% url 'addon_circulo:circulo' %}">Area y Perimetro del Circulo</a><br>
+    <a href="{% url 'addon_cuadrado:cuadrado' %}">Area y Perimetro del Cuadrado</a><br>
+    <a href="{% url 'addon_rectangulo:rectangulo' %}">Area y Perimetro del Rectangulo</a><br>
+    <a href="{% url 'addon_ecuacion:ecuacion' %}">Ecuacion Cuadratica</a><br>
+    <a href="{% url 'addon_recta:recta' %}">Recta</a><br>
+
+</body>
+</html>

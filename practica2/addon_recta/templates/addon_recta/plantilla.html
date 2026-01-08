@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'addon_recta/estilo.css' %}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="number" name="inicio" placeholder="Inicio" required><br>
+    <input type="number" name="fin" placeholder="Fin" required><br>
+    <button type="submit">Mostrar</button><br>
+
+
+{% if numeros %}
+    <p>Recta numérica:</p>
+    {% for i in numeros %}
+        {{ i }}
+    {% endfor %}
+{% endif %}
+
+{% if error %}
+    <p style="color:red">{{ error }}</p>
+{% endif %}
+    <br><br><button type="text"><a href="{% url 'core:core' %}">Ir a Core</a></button>
+</form>
+  
+</body>
+</html>

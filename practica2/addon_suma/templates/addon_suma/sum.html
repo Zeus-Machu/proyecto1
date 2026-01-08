@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'addon_suma/estilo.css' %}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+  <form method="POST">
+    {% csrf_token %}  
+    <input type="number" name="a" placeholder="numero 1" required><br>
+    <input type="number" name="b" placeholder="numero 2" required><br>
+    <button type="submit">Sumar</button><br><br>
+
+    {% if resultado != None %}
+    <h2>Resultado: {{ resultado }}</h2><br>
+     {% endif %}
+  
+    <button type="text"><a href="{% url 'core:core' %}">Ir a Core</a></button>
+  </form>
+  
+ 
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuación cuadrática</title>
+    <link rel="stylesheet" href="{% static 'addon_ecuacion/estilo.css' %}">
+</head>
+
+<body>
+
+<form method="post">
+    {% csrf_token %}
+
+    <input type="number" name="a" placeholder="a" step="any" required><p> x² + </p>
+    <input type="number" name="b" placeholder="b" step="any" required><p> x + </p>
+    <input type="number" name="c" placeholder="c" step="any" required><p>= 0</p>
+
+    <button type="submit">Calcular</button>
+</form>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+{% if x1 is not None %}
+    <p>Resultado x1: {{ x1 }}</p>
+    <p>Resultado x2: {{ x2 }}</p>
+{% endif %}
+
+<br>
+<a href="{% url 'core:core' %}">Ir a core</a>
+
+</body>
+</html>
