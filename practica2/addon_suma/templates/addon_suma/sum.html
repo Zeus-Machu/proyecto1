@@ -2,12 +2,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="{% static 'addon_suma/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'addon_sum/estilo.css' %}">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 </head>
 <body>
+ <h1>SUMA</h1>
+ <div class="barra">
+   <p class="lin">La suma es una operación matemática, <br> básica que consiste en agregar o unir dos o mas cantidades para obtener un total.</p>
+   <p class="lin">DEFINICION Y FUNDAMENTOS: <br> se representa como a + b = c, donde a y b son los sumandos y c es la suma (el resultado total).</p>
+   <p class="lin">EJEMPLO:<br> 8 + 6 + 4 = 18</p><br><br>
+ </div>
+ <img src="https://www.proferecursos.com/wp-content/uploads/Partes-Suma.jpg" alt="Partes de la suma" width="400" height="300"><br>
+
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/mDpDqe7IDVs?si=Qud4oDB0D3UeF8Jk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="barra">
+    <p class="lin">LIBRO RECOMENDADO: <br> Baldor Aurelio, Aritmetica </p>
+    <p class="lin">PAGINAS WEB: <br> https://www.khanacademy.org <br> https://www.smartick.es</p>
+    <p class="lin">CITADO: <br> google <br> chat gpt </p>
+  </div>
+
   <form method="POST">
     {% csrf_token %}  
     <input type="number" name="a" placeholder="numero 1" required><br>
