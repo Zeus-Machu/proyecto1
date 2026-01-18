@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Polinomios</title>
+    <link rel="stylesheet" href="{% static 'polin/estilo.css' %}">
+</head>
+
+<body>
+
+<h1>POLINOMIOS</h1>
+
+<div class="contenedor">
+
+    <div class="card">
+        <h4>¿Qué es un polinomio?</h4>
+        <p>
+            Es una expresión algebraica formada por
+            variables y constantes unidas por suma,
+            resta y multiplicación.
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Definición y fundamentos</h4>
+        <p>
+            Cada término tiene un coeficiente y una
+            variable elevada a una potencia entera
+            no negativa.
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Ejemplos</h4>
+        <p>
+            (3x + 2) + (5x + 4) = 8x + 6<br>
+            (3x + 2) − (5x + 4) = −2x − 2<br>
+            (3x + 2)(5x + 4) = 15x² + 22x + 8
+        </p>
+    </div>
+
+</div>
+
+<div class="media">
+    <img src="https://matematix.org/wp-content/uploads/suma-y-resta-de-un-polinomio-ejercicios-practicos-y-tips.jpg" width="350px" height="350px">
+    <img src="https://www.polinomios.org/wp-content/uploads/2020/09/multiplicacion-de-un-polinomio-por-un-monomio.jpg" width="350px" height="350px">
+
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/ep2rUJtZMKA?si=V58woClykwGacFOK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div class="contenedor">
+
+    <div class="card">
+        <h4>Libro recomendado</h4>
+        <p>
+            Álgebra 2 <br>
+            Larson / Holt McDougal
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Páginas web</h4>
+        <p>
+            <a href="https://enciclopediaiberoamericana.com/polinomios/" target="_blank">
+                enciclopediaiberoamericana.com
+            </a><br>
+            <a href="https://www.unprofesor.com/matematicas/suma-resta-y-multiplicacion-de-polinomios-202.html" target="_blank">
+                unprofesor.com
+            </a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Fuentes</h4>
+        <p>
+            Google <br>
+            ChatGPT
+        </p>
+    </div>
+
+</div>
+
+<div class="formulario">
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text" name="polinomio1"
+               placeholder="Polinomio 1 (ej. 2a+4b^2-5ab)"
+               required>
+
+        <input type="text" name="polinomio2"
+               placeholder="Polinomio 2 (ej. a-b)"
+               required>
+
+        <select name="operacion">
+            <option value="suma">Suma</option>
+            <option value="resta">Resta</option>
+            <option value="multiplicacion">Multiplicación</option>
+            <option value="division">División</option>
+        </select>
+
+        <button type="submit">Calcular</button>
+
+        {% if resultado %}
+            <p class="resultado">{{ resultado }}</p>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <br><a class="btn-secundario" href="{% url 'core:core' %}">Ir a Core</a>
+    </form>
+</div>
+
+</body>
+</html>

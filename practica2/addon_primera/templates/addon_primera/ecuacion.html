@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecuaciones de Primer Grado</title>
+    <link rel="stylesheet" href="{% static 'addon_primera/estilo.css' %}">
+</head>
+
+<body>
+
+<h1>ECUACIONES DE PRIMER GRADO</h1>
+
+<section class="info-grid">
+
+    <div class="card">
+        <h3>¿Qué es una ecuación de primer grado?</h3>
+        <p>
+            Es una ecuación algebraica donde la incógnita tiene exponente 1.
+            Su forma general es <strong>ax + b = 0</strong>.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Fundamentos</h3>
+        <p>
+            Se resuelve despejando la incógnita <strong>x</strong> mediante
+            operaciones inversas.
+        </p>
+    </div>
+
+    <div class="card destacado">
+        <h3>Ejemplo</h3>
+        <p>3x + 6 = 0 → x = -2</p>
+    </div>
+
+</section>
+
+<section class="media">
+    <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/9p0O6R_T6xQ"
+        title="YouTube video player"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+</section>
+
+<section class="formulario">
+    <form method="POST">
+        {% csrf_token %}
+
+        <h3>Resolver ecuación</h3>
+
+        <input type="number" name="a" placeholder="Coeficiente a" required>
+        <input type="number" name="b" placeholder="Término b" required>
+
+        <button type="submit">Resolver</button>
+
+        {% if resultado != None %}
+            <h2>Resultado: x = {{ resultado }}</h2>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+       <br><a class="btn-secundario" href="{% url 'core:core' %}">Ir a Core</a>
+    </form>
+</section>
+
+</body>
+</html>

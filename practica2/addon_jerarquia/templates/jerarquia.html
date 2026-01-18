@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Jerarquía de Operaciones</title>
+    <link rel="stylesheet" href="{% static 'jerarquia/estilo.css' %}">
+</head>
+
+<body>
+
+<h1>JERARQUÍA DE OPERACIONES</h1>
+
+<div class="contenedor">
+
+    <div class="card">
+        <h4>¿Qué es?</h4>
+        <p>
+            Es el orden correcto para resolver
+            operaciones matemáticas y evitar
+            resultados incorrectos.
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Orden correcto</h4>
+        <p>
+            1. Paréntesis<br>
+            2. Potencias<br>
+            3. Multiplicación y División<br>
+            4. Suma y Resta
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Ejemplo</h4>
+        <p>
+            8 + 2 × (5 − 3)² = 16
+        </p>
+    </div>
+
+</div>
+
+<div class="media">
+<iframe
+    src="https://www.youtube-nocookie.com/embed/9p0O6R_T6xQ"
+    width="560"
+    height="315"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+
+
+</div>
+
+<div class="formulario">
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="text"
+               name="expresion"
+               placeholder="Ejemplo: 8+2*(5-3)^2"
+               required>
+
+        <button type="submit">Resolver</button>
+
+        {% if resultado %}
+            <p class="resultado">Resultado: {{ resultado }}</p>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+         <br><a class="btn-secundario" href="{% url 'core:core' %}">Ir a Core</a>
+    </form>
+</div>
+
+</body>
+</html>

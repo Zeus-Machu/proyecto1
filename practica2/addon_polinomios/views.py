@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from sympy import sympify, pretty, latex
 
-def calcular_polinomios(request):
+def calcular(request):
     resultado = ""
     error = ""
 
@@ -38,7 +38,7 @@ def calcular_polinomios(request):
     
 
 
-    return render(request, 'calculadora/index.html', {
+    return render(request, 'addon_polinomio/polino.html', {
         'resultado': resultado,
         'error': error
     })

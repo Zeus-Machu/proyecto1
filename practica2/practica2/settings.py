@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     'addon_rectangulo',
     'addon_ecuacion',
     'addon_recta',
+    'addon_polinomios',
+    'addon_jerarquia',
+    'addon_factorizacion',
+    'addon_primera',
 ]
 
 MIDDLEWARE = [

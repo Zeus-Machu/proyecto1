@@ -28,5 +28,9 @@ urlpatterns = [
     path('rectangulo/', include ('addon_rectangulo.urls')),
     path('ecuacion',include('addon_ecuacion.urls')),
     path('recta',include('addon_recta.urls')),
+    path('calcular/', include('addon_polinomios.urls')),
+    path('jerarquia/', include('addon_jerarquia.urls')),
+    path('factorizacion/', include('addon_factorizacion.urls')),
+    path('primera/', include('addon_primera.urls')),
     path('admin/', admin.site.urls),
 ]

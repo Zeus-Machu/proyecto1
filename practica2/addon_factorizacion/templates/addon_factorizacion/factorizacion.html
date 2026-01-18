@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Factorización</title>
+    <link rel="stylesheet" href="{% static 'addon_factorizacion/estilo.css' %}">
+</head>
+
+<body>
+
+    <!-- TÍTULO -->
+    <h1>FACTORIZACIÓN</h1>
+
+    <!-- INFORMACIÓN PRINCIPAL -->
+    <section class="info-grid">
+
+        <div class="card">
+            <h3>¿Qué es la factorización?</h3>
+            <p>
+                La factorización es un proceso algebraico que consiste en
+                expresar una expresión como el producto de factores más simples.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Definición y fundamentos</h3>
+            <p>
+                Se utiliza para simplificar expresiones y resolver ecuaciones.<br>
+                Es común en trinomios, binomios y polinomios.
+            </p>
+        </div>
+
+        <div class="card destacado">
+            <h3>Ejemplo</h3>
+            <p>x² + 5x + 6 = (x + 2)(x + 3)</p>
+        </div>
+
+    </section>
+
+    <!-- IMAGEN -->
+    <section class="info-grande">
+        <h3>Ejemplo visual</h3>
+        <img src="https://www.neurochispas.com/wp-content/uploads/2020/04/factorizacion-trinomio.jpg"
+             alt="Ejemplo de factorización" width="400">
+    </section>
+
+    <!-- VIDEO -->
+    <section class="media">
+        <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/9p0O6R_T6xQ"
+            title="YouTube video player"
+            allowfullscreen>
+        </iframe>
+    </section>
+
+    <!-- FUENTES -->
+    <section class="fuentes">
+
+        <div class="card">
+            <h4>Libro recomendado</h4>
+            <p>
+                Baldor Aurelio<br>
+                Álgebra
+            </p>
+        </div>
+
+        <div class="card">
+            <h4>Páginas web</h4>
+            <p>
+                <a href="https://www.neurochispas.com/wiki/factorizacion/" target="_blank">
+                    Neurochispas
+                </a><br>
+                <a href="https://www.unprofesor.com/matematicas/factorizacion-1645.html" target="_blank">
+                    UnProfesor
+                </a>
+            </p>
+        </div>
+
+        <div class="card">
+            <h4>Créditos</h4>
+            <p>
+                Google <br>
+                ChatGPT
+            </p>
+        </div>
+
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="formulario">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <h3>Factoriza una expresión</h3>
+
+            <input type="text"
+                   name="expresion"
+                   placeholder="Ej: x^2 + 5*x + 6"
+                   required>
+
+            <button type="submit">Factorizar</button><br>
+
+            {% if resultado %}
+                <h2>Resultado: {{ resultado }}</h2>
+            {% endif %}
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+            <a class="btn-secundario" href="{% url 'core:core' %}">Ir a Core</a>
+        </form>
+
+    </section>
+
+</body>
+</html>

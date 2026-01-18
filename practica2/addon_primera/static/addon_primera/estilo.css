@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3a8a, #312e81);
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+    color: #eef2ff;
+}
+
+h1 {
+    color: #fde68a;
+    margin-bottom: 40px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+}
+
+.card {
+    background: #e0e7ff;
+    color: #1e3a8a;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.card.destacado {
+    background: #fde68a;
+}
+
+.media {
+    margin: 40px 0;
+}
+
+.formulario form {
+    background: #e0e7ff;
+    color: #1e3a8a;
+    width: 420px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    background: #4338ca;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 14px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3730a3;
+}
+
+.btn-secundario {
+    display: inline-block;
+    margin-top: 15px;
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error {
+    color: #dc2626;
+    font-weight: bold;
+}
