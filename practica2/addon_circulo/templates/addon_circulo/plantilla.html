@@ -1,51 +1,107 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <link rel="stylesheet" href="{% static 'addon_circulo/estilo.css' %}">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Área y Perímetro del Círculo</title>
+    <link rel="stylesheet" href="{% static 'circul/estilo.css' %}">
 </head>
 <body>
- <h1>AREA Y PERIMETRO DE UN CIRCULO</h1>
- <div class="barra">
-     <p class="lin">El circulo, <br> es una figura geométrica con todos sus puntos a la misma distancia del centro.</p>
-     <p class="lin">DEFINICION Y FUNDAMENTOS: <br> El área de un círculo se calcula como π por radio al cuadrado (πr²).<br> El perímetro es 2 por π por radio (2πr).</p>
-     <p class="lin">EJEMPLO:<br> Radio = 5, Área = 78.54, Perímetro = 31.42</p><br><br>
- </div>
- <img src="https://aprendeencasa.sep.gob.mx/multimedia/B64images/202112/B64-IMG-kYyoUVKPni-XgpGv1carz.png" alt="Partes de la resta" width="400" height="300"><br>
 
- <iframe width="560" height="315" src="https://www.youtube.com/embed/5Ifbq_EQSxU?si=3-4vtLmqwcVo0KbE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
- 
- <div class="barra">
-      <p class="lin">LIBRO RECOMENDADO: <br> Kiselev A.P. Geometria Elemental - Explicación de la circunferencia y area</p>
-      <p class="lin">PAGINAS WEB: <br> https://www.neurochispas.com/wiki/perimetro-y-area-de-un-circulo-formulas-y-ejercicios/ <br> https://nuevaescuelamexicana.sep.gob.mx/contenido/coleccion/resolver-problemas-de-calculo-de-perimetro-y-area-del-circulo/ </p>
-      <p class="lin">CITADO: <br> google <br> chat gpt </p>
-  </div>
+<h1>ÁREA Y PERÍMETRO DEL CÍRCULO</h1>
 
+<div class="contenedor">
 
-<form method="post">
-  {% csrf_token %}
- 
-  <label>A:
-    <input name="a" type="text" inputmode="decimal" placeholder="Radio">
-  </label><br><br>
-  
-  <button type="submit">Resultado</button><br><br>
+    <div class="card">
+        <h4>¿Qué es un círculo?</h4>
+        <p>
+            El círculo es una figura geométrica cuyos puntos están a la misma
+            distancia del centro.
+        </p>
+    </div>
 
+    <div class="card">
+        <h4>Definición y fundamentos</h4>
+        <p>
+            Área = π × r² <br>
+            Perímetro = 2 × π × r
+        </p>
+    </div>
 
-  {% if resultado_area %}
-  <p>Area: {{ resultado_area }}</p>
-  <p>Perimetro: {{ resultado_peri}}</p>
- {% endif %}
+    <div class="card">
+        <h4>Ejemplo</h4>
+        <p>
+            Radio = 5 <br>
+            Área = 78.54 <br>
+            Perímetro = 31.42
+        </p>
+    </div>
 
- {%if error %}
- <p style="color: red;">{{ error }}</p>
- {% endif %}
+</div>
 
-    <button type="text"><a href="{% url 'core:core' %}">Ir a Core</a></button>
-</form>
-  
+<div class="media">
+    <img src="https://aprendeencasa.sep.gob.mx/multimedia/B64images/202112/B64-IMG-kYyoUVKPni-XgpGv1carz.png" alt="Círculo">
+
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/5Ifbq_EQSxU?si=3-4vtLmqwcVo0KbE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div class="contenedor">
+
+    <div class="card">
+        <h4>Libro recomendado</h4>
+        <p>
+            Kiselev A.P. <br>
+            Geometría Elemental
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Páginas web</h4>
+        <p>
+            <a href="https://www.neurochispas.com/wiki/perimetro-y-area-de-un-circulo-formulas-y-ejercicios/" target="_blank">neurochispas.com</a><br>
+            <a href="https://nuevaescuelamexicana.sep.gob.mx/contenido/coleccion/resolver-problemas-de-calculo-de-perimetro-y-area-del-circulo/" target="_blank">nuevaescuelamexicana.gob.mx</a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Fuentes</h4>
+        <p>
+            Google <br>
+            ChatGPT
+        </p>
+    </div>
+
+</div>
+
+<div class="formulario">
+    <form method="post">
+        {% csrf_token %}
+
+        <label>
+            Radio:
+            <input name="a" type="text" inputmode="decimal" placeholder="Ej. 5">
+        </label>
+
+        <button type="submit">Calcular</button>
+
+        {% if resultado_area %}
+            <p>Área: {{ resultado_area }}</p>
+            <p>Perímetro: {{ resultado_peri }}</p>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        
+        <br>
+        <a class="btn-secundario" href="{% url 'core:core' %}">
+            Ir a Core
+        </a>
+    
+    </form>
+</div>
+
 </body>
 </html>

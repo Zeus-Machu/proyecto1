@@ -1,46 +1,100 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-     <link rel="stylesheet" href="{% static 'addon_resta/estilo.css' %}">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resta</title>
+    <link rel="stylesheet" href="{% static 'addon_resta/estilo.css' %}">
 </head>
 <body>
-  <h1>RESTA</h1>
- <div class="barra">
-   <p class="lin">La resta es una operación matemática, <br> básica que consiste en quitar o disminuir una cantidad de otra para obtener una diferencia.</p>
-   <p class="lin">DEFINICION Y FUNDAMENTOS: <br> se representa como a - b = c, donde a es el minuendo, b es el sustraendo y c es la diferencia (el resultado total).</p>
-   <p class="lin">EJEMPLO:<br> 10 - 4 = 6</p><br><br>
- </div>
- <img src="https://www.proferecursos.com/wp-content/uploads/Partes-Resta.jpg" alt="Partes de la resta" width="400" height="300"><br>
 
- <iframe width="560" height="315" src="https://www.youtube.com/embed/L6NOkLq6kHk?si=G04vF0TDdsH8yUZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
- 
- <div class="barra">
-    <p class="lin">LIBRO RECOMENDADO: <br> Santillana, Matematica Secundaria </p>
-    <p class="lin">PAGINAS WEB: <br> https://www.partesdel.com/partes_de_la_resta.html <br> https://nuevaescuelamexicana.org/resta/ </p>
-    <p class="lin">CITADO: <br> google <br> chat gpt </p>
-  </div>
+<h1>RESTA</h1>
 
+<!-- DEFINICIÓN Y FUNDAMENTOS -->
+<div class="info-grid">
+    <div class="card">
+        <h3>¿Qué es la resta?</h3>
+        <p>
+            La resta es una operación matemática básica que consiste en quitar
+            o disminuir una cantidad de otra para obtener una diferencia.
+        </p>
+    </div>
 
+    <div class="card">
+        <h3>Definición y fundamentos</h3>
+        <p>
+            Se representa como <strong>a − b = c</strong>, donde:
+            <br>a es el minuendo,
+            <br>b es el sustraendo,
+            <br>c es la diferencia.
+        </p>
+    </div>
 
+    <div class="card destacado">
+        <h3>Ejemplo</h3>
+        <p>10 − 4 = 6</p>
+    </div>
+</div>
 
+<!-- IMAGEN -->
+<div class="media">
+    <img src="https://www.proferecursos.com/wp-content/uploads/Partes-Resta.jpg"
+         alt="Partes de la resta"
+         width="400"
+         height="300">
+</div>
 
+<!-- VIDEO -->
+<div class="media">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/L6NOkLq6kHk?si=G04vF0TDdsH8yUZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>   
+</div>
 
-  <form method="POST">
-  {% csrf_token %}  
-    <input type="number" name="a" placeholder="numero 1" required><br>
-    <input type="number" name="b" placeholder="numero 2" required><br>
-    <button type="submit">Restar</button><br><br>
+<!-- FUENTES -->
+<div class="info-grid">
+    <div class="card">
+        <h4>Libro recomendado</h4>
+        <p>Santillana, Matemática Secundaria</p>
+    </div>
 
-    {% if resultado != None %}
-        <h2>Resultado: {{ resultado }}</h2><br>
-    {% endif %}
-    <button type="text"><center:><a href="{% url 'core:core' %}">Ir a Core</a></center></button>
-  </form>
-    
-    
+    <div class="card">
+        <h4>Páginas web</h4>
+        <p>
+            <a href="https://www.partesdel.com/partes_de_la_resta.html" target="_blank">
+                partesdel.com
+            </a><br>
+            <a href="https://nuevaescuelamexicana.org/resta/" target="_blank">
+                nuevaescuelamexicana.org
+            </a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Citado</h4>
+        <p>Google<br>ChatGPT</p>
+    </div>
+</div>
+
+<!-- FORMULARIO -->
+<div class="formulario">
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="number" name="a" placeholder="Número 1" required>
+        <input type="number" name="b" placeholder="Número 2" required>
+
+        <button type="submit">Restar</button>
+
+        {% if resultado != None %}
+            <h2>Resultado: {{ resultado }}</h2>
+        {% endif %}
+
+        <br>
+        <a class="btn-secundario" href="{% url 'core:core' %}">
+            Ir a Core
+        </a>
+    </form>
+</div>
+
 </body>
 </html>

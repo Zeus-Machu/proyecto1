@@ -1,55 +1,112 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <link rel="stylesheet" href="{% static 'addon_rectangulo/estilo.css' %}">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Área y Perímetro del Rectángulo</title>
+    <link rel="stylesheet" href="{% static 'rect/estilo.css' %}">
 </head>
 <body>
 
- <h1>AREA Y PERIMETRO DE UN RECTANGULO</h1>
- <div class="barra">
-   <p class="lin">El rectangulo es una figura geométrica plana, <br> con cuatro lados y cuatro ángulos rectos.</p>
-   <p class="lin">DEFINICION Y FUNDAMENTOS: <br> Area, se obtiene multiplicando la base por la altura. Perimetro, se obtiene sumando los cuatro lados.</p>
-   <p class="lin">EJEMPLO:<br> b(base)=8 <br> h(altura)=5 <br>  Perimetro= 26  Area=40</p><br><br>
- </div>
- <img src="https://www.abcfichas.com/wp-content/uploads/2021/04/Formula-Area-y-Perimetro-del-Rectangulo.jpg" alt="Partes de la resta" width="400" height="300"><br>
+<h1>ÁREA Y PERÍMETRO DEL RECTÁNGULO</h1>
 
- <iframe width="560" height="315" src="https://www.youtube.com/embed/cZozsc6-yAM?si=IEJacyfKsnqY-yEK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
- 
- <div class="barra">
-    <p class="lin">LIBRO RECOMENDADO: <br> Baldor A. Aritmetica-Capitulo de figuras geométricas </p>
-    <p class="lin">PAGINAS WEB: <br> https://www.neurochispas.com/wiki/perimetro-y-area-de-un-rectangulo-formulas-y-ejercicios/ </p>
-    <p class="lin">CITADO: <br> google <br> chat gpt </p>
-  </div>
+<!-- Información principal -->
+<div class="contenedor">
 
+    <div class="card">
+        <h4>¿Qué es un rectángulo?</h4>
+        <p>
+            El rectángulo es una figura geométrica plana  
+            con cuatro lados y cuatro ángulos rectos.
+        </p>
+    </div>
 
+    <div class="card">
+        <h4>Definición y fundamentos</h4>
+        <p>
+            <strong>Área:</strong> se obtiene multiplicando la base por la altura.<br>
+            <strong>Perímetro:</strong> se obtiene sumando los cuatro lados.
+        </p>
+    </div>
 
-<form method="post">
-  {% csrf_token %}
- 
-  <label>A:
-    <input name="a" type="text" inputmode="decimal" placeholder="Base">
-  </label><br><br>
-  <label>B:
-    <input name="b" type="text" inputmode="decimal" placeholder="Altura">
-  </label><br><br>
-  <button type="submit">Resultado</button><br><br>
+    <div class="card">
+        <h4>Ejemplo</h4>
+        <p>
+            Base = 8<br>
+            Altura = 5<br>
+            Perímetro = 26<br>
+            Área = 40
+        </p>
+    </div>
 
+</div>
 
-  {% if resultado_area %}
-  <p>Area: {{ resultado_area }}</p>
-  <p>Perimetro: {{ resultado_peri}}</p>
- {% endif %}
+<!-- Imagen -->
+<div class="media">
+    <img src="https://www.abcfichas.com/wp-content/uploads/2021/04/Formula-Area-y-Perimetro-del-Rectangulo.jpg"
+         alt="Área y perímetro del rectángulo">
+</div>
 
- {%if error %}
- <p style="color: red;">{{ error }}</p>
- {% endif %}
+<!-- Video -->
+<div class="media">
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/cZozsc6-yAM?si=IEJacyfKsnqY-yEK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
-    <button type="text"><a href="{% url 'core:core' %}">Ir a Core</a></button>
-</form>
-  
+<!-- Recursos -->
+<div class="contenedor">
+
+    <div class="card">
+        <h4>Libro recomendado</h4>
+        <p>
+            Baldor A. <br>
+            Aritmética – Capítulo de figuras geométricas
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Páginas web</h4>
+        <p>
+            <a href="https://www.neurochispas.com/wiki/perimetro-y-area-de-un-rectangulo-formulas-y-ejercicios/" target="_blank">
+                Neurochispas – Área y Perímetro
+            </a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Fuentes</h4>
+        <p>
+            Google <br>
+            ChatGPT
+        </p>
+    </div>
+
+</div>
+
+<!-- Formulario -->
+<div class="formulario">
+    <form method="post">
+        {% csrf_token %}
+
+        <input name="a" type="text" inputmode="decimal" placeholder="Base" required>
+        <input name="b" type="text" inputmode="decimal" placeholder="Altura" required>
+
+        <button type="submit">Calcular</button><br>
+
+        {% if resultado_area %}
+            <h2>Área: {{ resultado_area }}</h2>
+            <h2>Perímetro: {{ resultado_peri }}</h2>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form>
+        <a class="btn-secundario" href="{% url 'core:core' %}">Ir a Core</a>
+        </form>
+    </form>
+</div>
+
 </body>
 </html>

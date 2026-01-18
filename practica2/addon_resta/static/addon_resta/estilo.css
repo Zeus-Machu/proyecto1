@@ -1,74 +1,197 @@
-/* Centrar todo el contenido */
 body {
-    font-family: Arial, sans-serif;
-    background: #f0f0f0;
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
+    padding: 20px;
+    text-align: center;
+
+    background: linear-gradient(135deg, 
+        #e0e7ff,
+        #eef2ff
+    );
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 48px;
+    margin-bottom: 30px;
+    padding: 15px;
+
+    background: linear-gradient(135deg, #818cf8, #a5b4fc);
+    border-radius: 18px;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.card {
+    background: linear-gradient(
+        135deg,
+        #ede9fe,
+        #e0e7ff
+    );
+    
+    border-radius: 28px;
+    padding: 35px 30px;
+
+    box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+    
+    text-align: center;
+    color: #1e293b;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 26px 45px rgba(0,0,0,0.18);
+}
+
+.card h3,
+.card h4 {
+    color: #6366f1;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    background: transparent;
+    box-shadow: none;
     padding: 0;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.destacado p {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.info-grande {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 10px;
+
+    background: rgba(238, 242, 255, 0.95);
+    border-radius: 22px;
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.info-grande h3 {
+    color: #818cf8;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+img {
+    border-radius: 14px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    max-width: 100%;
+}
+
+.media {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin: 40px 0;
 }
 
-/* Contenedor general */
-.contenedor {
-    text-align: center;
+iframe {
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* Formulario */
-form {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    width: 250px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.fuentes {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 40px auto;
 }
 
-/* Inputs */
-input[type="number"] {
+.formulario form {
+    background: linear-gradient(
+        135deg,
+        #ede9fe,
+        #e0e7ff
+    );
+    margin: 40px auto;
+    padding: 32px;
+
+    border-radius: 22px;
+    border: 2px solid #818cf8;
+
+    box-shadow:
+        0 14px 30px rgba(0,0,0,0.15),
+        0 0 0 6px rgba(129,140,248,0.25);
+
+    width: 480px;
+    font-size: 20px;
+}
+
+input {
     width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 15px;
+    padding: 12px;
+    margin: 12px 0;
+
+    border-radius: 10px;
+    border: 1px solid #c7d2fe;
+    font-size: 16px;
+
+    background-color: #ffffffcc;
 }
 
-/* Botón */
 button {
-    width: 100%;
-    padding: 10px;
-    background: #3498db;
-    color: white;
+    background: linear-gradient(135deg, #818cf8, #60a5fa);
+    color: #ffffff;
+
     border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 12px 30px;
+    margin: 12px;
+
+    border-radius: 12px;
     font-size: 16px;
+    cursor: pointer;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Resultado */
-h2 {
-    margin-top: 20px;
-    color: #444;
-    font-size: 22px;
-}
-
-/* Link de ir al core */
-.link-core {
+.btn-secundario {
     display: inline-block;
-    margin-top: 15px;
-    font-size: 18px;
-    color: #2c3e50;
+    margin-top: 10px;
+    color: #6366f1;
+    font-weight: 600;
     text-decoration: none;
-    font-weight: bold;
 }
 
-.link-core:hover {
+.btn-secundario:hover {
     text-decoration: underline;
-    color: #1a242f;
+}
+
+h2 {
+    color: #6366f1;
+    margin-top: 15px;
+}
+
+.card a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card a:hover {
+    text-decoration: underline;
 }

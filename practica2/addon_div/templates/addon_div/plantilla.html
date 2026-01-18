@@ -1,51 +1,106 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <link rel="stylesheet" href="{% static 'addon_div/estilo.css' %}">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>División</title>
+    <link rel="stylesheet" href="{% static 'divi/estilo.css' %}">
 </head>
 <body>
- <h1>DIVICION</h1>
- <div class="barra">
-     <p class="lin">La división, <br> es una operación matemática que consiste en repartir un número en partes iguales.</p>
-     <p class="lin">DEFINICION Y FUNDAMENTOS: <br> se representan con "÷" o "/"<br> los numeros que se dividen se llaman dividendo y divisor, el resultado es el cociente.</p>
-     <p class="lin">EJEMPLO:<br> 10 ÷ 2 = 5</p><br><br>
- </div>
- <img src="https://www.abcfichas.com/wp-content/uploads/2021/05/Partes-de-una-Division.jpg" alt="Partes de la resta" width="400" height="300"><br>
 
- <iframe width="560" height="315" src="https://www.youtube.com/embed/mQ4wKV9_pZs?si=2U8eNTGVR4DfhjNT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
- 
- <div class="barra">
-      <p class="lin">LIBRO RECOMENDADO: <br> SEP. Matematicas </p>
-      <p class="lin">PAGINAS WEB: <br> https://www.significados.com/division/ <br> https://trasteandoenlaescuela.com/como-hacer-divisiones/ </p>
-      <p class="lin">CITADO: <br> google <br> chat gpt </p>
-  </div>
+<h1>DIVISIÓN</h1>
 
+<!-- BLOQUE DE INFORMACIÓN -->
+<div class="info-grid">
 
-<form method="post">
-  {% csrf_token %}
- 
-  <label>A:
-    <input name="a" type="text" inputmode="decimal" placeholder="ej. 3.14 o 3,14">
-  </label><br><br>
-  <label>B:
-    <input name="b" type="text" inputmode="decimal" placeholder="ej. 2.5 o 2,50">
-  </label><br><br>
-  <button type="submit">Dividir</button><br><br>
+    <div class="card">
+        <h3>¿Qué es la división?</h3>
+        <p>
+            La división es una operación matemática que consiste en repartir
+            un número en partes iguales.
+        </p>
+    </div>
 
+    <div class="card">
+        <h3>Definición y fundamentos</h3>
+        <p>
+            Se representa con <strong>÷</strong> o <strong>/</strong>.<br>
+            Los números se llaman dividendo y divisor,
+            y el resultado es el cociente.
+        </p>
+    </div>
 
- {% if error %}
-  <p style="color: red;">{{ error }}</p>
- {% endif %}
+    <div class="card destacado">
+        <h3>Ejemplo</h3>
+        <p>
+            10 ÷ 2 = 5
+        </p>
+    </div>
 
- {% if resultado is not None %}
-  <p>Resultado: {{ resultado }}</p>
- {% endif %}
-    <button type="text"><a href="{% url 'core:core' %}">Ir a Core</a></button>
-</form>
-  
+</div>
+
+<!-- IMAGEN -->
+<div class="info-grande">
+    <img src="https://www.abcfichas.com/wp-content/uploads/2021/05/Partes-de-una-Division.jpg"
+         alt="Partes de la división">
+</div>
+
+<!-- VIDEO -->
+<div class="media">
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/mQ4wKV9_pZs?si=2U8eNTGVR4DfhjNT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+
+<!-- FUENTES -->
+<div class="fuentes">
+
+    <div class="card">
+        <h4>Libro recomendado</h4>
+        <p>SEP – Matemáticas</p>
+    </div>
+
+    <div class="card">
+        <h4>Páginas web</h4>
+        <p>
+            <a href="https://www.significados.com/division/" target="_blank">significados.com</a><br>
+            <a href="https://trasteandoenlaescuela.com/como-hacer-divisiones/" target="_blank">
+                trasteandoenlaescuela.com
+            </a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Fuentes</h4>
+        <p>Google<br>ChatGPT</p>
+    </div>
+
+</div>
+
+<!-- FORMULARIO -->
+<div class="formulario">
+    <form method="post">
+        {% csrf_token %}
+
+        <input name="a" type="text" inputmode="decimal"
+               placeholder="Dividendo (ej. 10)" required>
+
+        <input name="b" type="text" inputmode="decimal"
+               placeholder="Divisor (ej. 2)" required>
+
+        <button type="submit">Dividir</button><br>
+
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        {% if resultado is not None %}
+            <h2>Resultado: {{ resultado }}</h2>
+        {% endif %}
+
+        <a class="btn-secundario" href="{% url 'core:core' %}">Ir a Core</a>
+    </form>
+</div>
+
 </body>
 </html>

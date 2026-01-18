@@ -1,41 +1,109 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Suma</title>
     <link rel="stylesheet" href="{% static 'addon_sum/estilo.css' %}">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
 </head>
+
 <body>
- <h1>SUMA</h1>
- <div class="barra">
-   <p class="lin">La suma es una operación matemática, <br> básica que consiste en agregar o unir dos o mas cantidades para obtener un total.</p>
-   <p class="lin">DEFINICION Y FUNDAMENTOS: <br> se representa como a + b = c, donde a y b son los sumandos y c es la suma (el resultado total).</p>
-   <p class="lin">EJEMPLO:<br> 8 + 6 + 4 = 18</p><br><br>
- </div>
- <img src="https://www.proferecursos.com/wp-content/uploads/Partes-Suma.jpg" alt="Partes de la suma" width="400" height="300"><br>
 
- <iframe width="560" height="315" src="https://www.youtube.com/embed/mDpDqe7IDVs?si=Qud4oDB0D3UeF8Jk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <div class="barra">
-    <p class="lin">LIBRO RECOMENDADO: <br> Baldor Aurelio, Aritmetica </p>
-    <p class="lin">PAGINAS WEB: <br> https://www.khanacademy.org <br> https://www.smartick.es</p>
-    <p class="lin">CITADO: <br> google <br> chat gpt </p>
-  </div>
+    <!-- TÍTULO -->
+    <h1>SUMA</h1>
 
-  <form method="POST">
-    {% csrf_token %}  
-    <input type="number" name="a" placeholder="numero 1" required><br>
-    <input type="number" name="b" placeholder="numero 2" required><br>
-    <button type="submit">Sumar</button><br><br>
+    <!-- INFORMACIÓN PRINCIPAL -->
+    <section class="info-grid">
 
-    {% if resultado != None %}
-    <h2>Resultado: {{ resultado }}</h2><br>
-     {% endif %}
-  
-    <button type="text"><a href="{% url 'core:core' %}">Ir a Core</a></button>
-  </form>
-  
- 
+        <div class="card">
+            <h3>¿Qué es la suma?</h3>
+            <p>
+                La suma es una operación matemática básica que consiste en agregar o unir
+                dos o más cantidades para obtener un total.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Definición y fundamentos</h3>
+            <p>
+                Se representa como <strong>a + b = c</strong>, donde <br>
+                a y b son los sumandos y c es la suma (resultado total).
+            </p>
+        </div>
+
+        <div class="card destacado">
+            <h3>Ejemplo</h3>
+            <p>8 + 6 + 4 = 18</p>
+        </div>
+
+    </section>
+
+    <!-- PARTES DE LA SUMA -->
+    <section class="info-grande">
+        <h3>Partes de la suma</h3>
+        <img src="https://www.proferecursos.com/wp-content/uploads/Partes-Suma.jpg"
+             alt="Partes de la suma" width="400">
+    </section>
+
+    <!-- VIDEO -->
+    <section class="media">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/mDpDqe7IDVs?si=Qud4oDB0D3UeF8Jk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        </iframe>
+    </section>
+
+    <!-- FUENTES -->
+    <section class="fuentes">
+
+        <div class="card">
+            <h4>Libro recomendado</h4>
+            <p>Baldor Aurelio<br>Aritmética</p>
+        </div>
+
+        <div class="card">
+        <div class="card">
+    <h4>Páginas web</h4>
+    <p>
+        <a href="https://www.khanacademy.org" target="_blank">
+            Khan Academy
+        </a><br>
+        <a href="https://www.smartick.es" target="_blank">
+            Smartick
+        </a>
+    </p>
+</div>
+        <div class="card">
+            <h4>Créditos</h4>
+            <p>
+                Google <br>
+                ChatGPT
+            </p>
+        </div>
+
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="formulario">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <h3>Calcula una suma</h3>
+
+            <input type="number" name="a" placeholder="Número 1" required>
+            <input type="number" name="b" placeholder="Número 2" required>
+
+            <button type="submit">Sumar</button><br>
+
+            {% if resultado != None %}
+                <h2>Resultado: {{ resultado }}</h2>
+            {% endif %}
+
+            <a class="btn-secundario" href="{% url 'core:core' %}">Ir a Core</a>
+        </form>
+
+    </section>
+
 </body>
 </html>

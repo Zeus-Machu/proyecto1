@@ -1,52 +1,111 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <link rel="stylesheet" href="{% static 'addon_multi/estilo.css' %}">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multiplicación</title>
+    <link rel="stylesheet" href="{% static 'multi/estilo.css' %}">
 </head>
 <body>
- <h1>MULTIPLICACION</h1>
- <div class="barra">
-     <p class="lin">La multiplicación, <br> es una operación matemática que consiste en sumar un número tantas veces como indica otro número.</p>
-     <p class="lin">DEFINICION Y FUNDAMENTOS: <br> se representan con "x" o "*"<br> los numeros que se multiplican se llaman factores y el resultado es el producto.</p>
-     <p class="lin">EJEMPLO:<br> 4 x 5 = 20</p><br><br>
- </div>
- <img src="https://www.proferecursos.com/wp-content/uploads/Partes-Multiplicacion.jpg" alt="Partes de la resta" width="400" height="300"><br>
 
- <iframe width="560" height="315" src="https://www.youtube.com/embed/AE4B0hgnz0E?si=bg3xcLx_oa8ocSXp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
- 
- <div class="barra">
-      <p class="lin">LIBRO RECOMENDADO: <br> Baldor A. Algebra </p>
-      <p class="lin">PAGINAS WEB: <br> https://aprendix.org/la-multiplicacion/ <br> https://nuevaescuelamexicana.org/que-es-la-multiplicacion-2/ </p>
-      <p class="lin">CITADO: <br> google <br> chat gpt </p>
-  </div>
+<h1>MULTIPLICACIÓN</h1>
 
+<!-- INFORMACIÓN PRINCIPAL -->
+<div class="info-grid">
 
+    <div class="card">
+        <h3>¿Qué es la multiplicación?</h3>
+        <p>
+            La multiplicación es una operación matemática que consiste
+            en sumar un número tantas veces como lo indica otro número.
+        </p>
+    </div>
 
-<form method="post">
-  {% csrf_token %}
- 
-  <label>A:
-    <input name="a" type="text" inputmode="decimal" placeholder="ej. 3.14 o 3,14">
-  </label><br><br>
-  <label>B:
-    <input name="b" type="text" inputmode="decimal" placeholder="ej. 2.5 o 2,50">
-  </label><br><br>
-  <button type="submit">Multiplicar</button><br><br>
+    <div class="card">
+        <h3>Definición y fundamentos</h3>
+        <p>
+            Se representa con <strong>x</strong> o <strong>*</strong>.<br>
+            Los números se llaman factores y el resultado es el producto.
+        </p>
+    </div>
 
+    <div class="card destacado">
+        <h3>Ejemplo</h3>
+        <p>
+            4 × 5 = 20
+        </p>
+    </div>
 
- {% if error %}
-  <p style="color: red;">{{ error }}</p>
- {% endif %}
+</div>
 
- {% if resultado is not None %}
-  <p>Resultado: {{ resultado }}</p>
- {% endif %}
-    <button type="text"><a href="{% url 'core:core' %}">Ir a Core</a></button>
-</form>
-  
+<!-- IMAGEN -->
+<div class="info-grande">
+    <img src="https://www.proferecursos.com/wp-content/uploads/Partes-Multiplicacion.jpg"
+         alt="Partes de la multiplicación">
+</div>
+
+<!-- VIDEO -->
+<div class="media">
+    <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/AE4B0hgnz0E?si=bg3xcLx_oa8ocSXp"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+    </iframe>
+</div>
+
+<!-- FUENTES -->
+<div class="fuentes">
+
+    <div class="card">
+        <h4>Libro recomendado</h4>
+        <p>Baldor A. – Álgebra</p>
+    </div>
+
+    <div class="card">
+        <h4>Páginas web</h4>
+        <p>
+            <a href="https://aprendix.org/la-multiplicacion/" target="_blank">aprendix.org</a><br>
+            <a href="https://nuevaescuelamexicana.org/que-es-la-multiplicacion-2/" target="_blank">
+                nuevaescuelamexicana.org
+            </a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Fuentes</h4>
+        <p>Google<br>ChatGPT</p>
+    </div>
+
+</div>
+
+<!-- FORMULARIO -->
+<div class="formulario">
+    <form method="post">
+        {% csrf_token %}
+
+        <input name="a" type="text" inputmode="decimal"
+               placeholder="Factor 1 (ej. 4)" required>
+
+        <input name="b" type="text" inputmode="decimal"
+               placeholder="Factor 2 (ej. 5)" required>
+
+        <button type="submit">Multiplicar</button><br>
+
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        {% if resultado is not None %}
+            <h2>Resultado: {{ resultado }}</h2>
+        {% endif %}
+
+        <a class="btn-secundario" href="{% url 'core:core' %}">Ir a Core</a>
+    </form>
+</div>
+
 </body>
 </html>

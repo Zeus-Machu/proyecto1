@@ -3,50 +3,110 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ecuación cuadrática</title>
-    <link rel="stylesheet" href="{% static 'addon_ecuacion/estilo.css' %}">
+    <title>Ecuaciones de segundo grado</title>
+    <link rel="stylesheet" href="{% static 'ecuacion/estilo.css' %}">
 </head>
-
 <body>
- <h1>ECUACIONES DE SEGUNDO GRADO</h1>
- <div class="barra">
-     <p class="lin">Las  ecuaciones se segundo grado, <br> es cuando el valor de la incognita es elevada al cuadrado.</p>
-     <p class="lin">DEFINICION Y FUNDAMENTOS: <br> Una ecuacion de segundo grado<br> tiene la forma general ax² + bx + c = 0</p>
-     <p class="lin">EJEMPLO:<br> x² + 5x + 6 = 0 <br> x1= -2, x2 = -3 </p><br><br>
- </div>
- <img src="https://www.ejerciciosecuaciones.com/wp-content/uploads/2022/08/ecuaciones-de-segundo-grado.png" alt="Partes de la resta" width="400" height="300"><br>
 
- <iframe width="560" height="315" src="https://www.youtube.com/embed/ZC67c5ar9mA?si=4ij1Ru7IMJBwR4CG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
- 
- <div class="barra">
-      <p class="lin">LIBRO RECOMENDADO: <br> Santillana. Matematicas 3ro de secundaria </p>
-      <p class="lin">PAGINAS WEB: <br> https://www.lifeder.com/ecuaciones-de-segundo-grado/ <br> https://www.superprof.es/apuntes/escolar/matematicas/algebra/ecuaciones/ejercicios-ecuaciones-de-segundo-grado.html </p>
-      <p class="lin">CITADO: <br> google <br> chat gpt </p>
-  </div>
+<h1>ECUACIONES DE SEGUNDO GRADO</h1>
 
+<div class="contenedor">
 
+    <div class="card">
+        <h4>¿Qué es una ecuación cuadrática?</h4>
+        <p>
+            Una ecuación de segundo grado es aquella donde la incógnita
+            está elevada al cuadrado.
+        </p>
+    </div>
 
-<form method="post">
-    {% csrf_token %}
+    <div class="card">
+        <h4>Definición y fundamentos</h4>
+        <p>
+            Forma general:<br>
+            ax² + bx + c = 0
+        </p>
+    </div>
 
-    <input type="number" name="a" placeholder="a" step="any" required><p> x² + </p>
-    <input type="number" name="b" placeholder="b" step="any" required><p> x + </p>
-    <input type="number" name="c" placeholder="c" step="any" required><p>= 0</p>
+    <div class="card">
+        <h4>Ejemplo</h4>
+        <p>
+            x² + 5x + 6 = 0 <br>
+            x₁ = −2 <br>
+            x₂ = −3
+        </p>
+    </div>
 
-    <button type="submit">Calcular</button>
-</form>
+</div>
 
-{% if error %}
-    <p style="color:red;">{{ error }}</p>
-{% endif %}
+<div class="media">
+    <img src="https://www.ejerciciosecuaciones.com/wp-content/uploads/2022/08/ecuaciones-de-segundo-grado.png" alt="Ecuación cuadrática">
 
-{% if x1 is not None %}
-    <p>Resultado x1: {{ x1 }}</p>
-    <p>Resultado x2: {{ x2 }}</p>
-{% endif %}
+    
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZC67c5ar9mA?si=4ij1Ru7IMJBwR4CG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<br>
-<a href="{% url 'core:core' %}">Ir a core</a>
+</div>
+
+<div class="contenedor">
+
+    <div class="card">
+        <h4>Libro recomendado</h4>
+        <p>
+            Santillana <br>
+            Matemáticas 3° de secundaria
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Páginas web</h4>
+        <p>
+            <a href="https://www.lifeder.com/ecuaciones-de-segundo-grado/" target="_blank">lifeder.com</a><br>
+            <a href="https://www.superprof.es/apuntes/escolar/matematicas/algebra/ecuaciones/ejercicios-ecuaciones-de-segundo-grado.html" target="_blank">superprof.es</a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Fuentes</h4>
+        <p>
+            Google <br>
+            ChatGPT
+        </p>
+    </div>
+
+</div>
+
+<div class="formulario">
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="ecuacion">
+            <input type="number" name="a" step="any" placeholder="a" required>
+            <span>x² +</span>
+
+            <input type="number" name="b" step="any" placeholder="b" required>
+            <span>x +</span>
+
+            <input type="number" name="c" step="any" placeholder="c" required>
+            <span>= 0</span>
+        </div>
+
+        <button type="submit">Calcular</button>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if x1 is not None %}
+            <p>Resultado x₁: {{ x1 }}</p>
+            <p>Resultado x₂: {{ x2 }}</p>
+        {% endif %}
+
+        <br>
+        <a class="btn-secundario" href="{% url 'core:core' %}">
+            Ir a Core
+        </a>
+    </form>
+</div>
 
 </body>
 </html>

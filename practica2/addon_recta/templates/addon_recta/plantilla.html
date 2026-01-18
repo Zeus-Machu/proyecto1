@@ -1,51 +1,103 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <link rel="stylesheet" href="{% static 'addon_recta/estilo.css' %}">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <meta charset="UTF-8">
+    <title>Recta numérica</title>
+    <link rel="stylesheet" href="{% static 'recta/estilo.css' %}">
 </head>
 <body>
 
-<h1>RECTA NUMERICA</h1>
- <div class="barra">
-     <p class="lin">La recta numerica, <br>es una linea donde se representan los numeros en orden </p>
-     <p class="lin">DEFINICION Y FUNDAMENTOS: <br> El cero "0", es el punto central, los numeros positivos a la derecha y los negativos a la izquierda.</p>
-     <p class="lin">EJEMPLO:<br> b(base)=8 <br> h(altura)=5 <br>  Perimetro= 26  Area=40</p><br><br>
- </div>
- <img src="https://www.abcfichas.com/wp-content/uploads/2021/04/Formula-Area-y-Perimetro-del-Rectangulo.jpg" alt="Partes de la resta" width="400" height="300"><br>
+<h1>RECTA NUMÉRICA</h1>
 
- <iframe width="560" height="315" src="https://www.youtube.com/embed/cZozsc6-yAM?si=IEJacyfKsnqY-yEK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
- 
- <div class="barra">
-      <p class="lin">LIBRO RECOMENDADO: <br> Baldor A. Aritmetica-Capitulo de figuras geométricas </p>
-      <p class="lin">PAGINAS WEB: <br> https://www.neurochispas.com/wiki/perimetro-y-area-de-un-rectangulo-formulas-y-ejercicios/ </p>
-      <p class="lin">CITADO: <br> google <br> chat gpt </p>
-  </div>
+<div class="contenedor">
 
+    <div class="card">
+        <h4>¿Qué es la recta numérica?</h4>
+        <p>
+            Es una línea donde se representan los números
+            en orden, de izquierda a derecha.
+        </p>
+    </div>
 
-<form method="post">
+    <div class="card">
+        <h4>Definición y fundamentos</h4>
+        <p>
+            El número 0 es el punto central.<br>
+            Los positivos están a la derecha y
+            los negativos a la izquierda.
+        </p>
+    </div>
 
-    {% csrf_token %}
-    <input type="number" name="inicio" placeholder="Inicio" required><br>
-    <input type="number" name="fin" placeholder="Fin" required><br>
-    <button type="submit">Mostrar</button><br>
+    <div class="card">
+        <h4>Ejemplo</h4>
+        <p>
+            −3 −2 −1 0 1 2 3
+        </p>
+    </div>
 
+</div>
 
-{% if numeros %}
-    <p>Recta numérica:</p>
-    {% for i in numeros %}
-        {{ i }}
-    {% endfor %}
-{% endif %}
+<div class="media">
+    <img src="https://www.ejerciciosecuaciones.com/wp-content/uploads/2022/08/ecuaciones-de-segundo-grado.png" alt="Partes de la resta" width="400" height="300"><br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/cZozsc6-yAM?si=IEJacyfKsnqY-yEK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
-{% if error %}
-    <p style="color:red">{{ error }}</p>
-{% endif %}
-    <br><br><button type="text"><a href="{% url 'core:core' %}">Ir a Core</a></button>
-</form>
-  
+<div class="contenedor">
+
+    <div class="card">
+        <h4>Libro recomendado</h4>
+        <p>
+            Baldor Aritmética <br>
+            Capítulo de números enteros
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Páginas web</h4>
+        <p>
+            <a href="https://www.neurochispas.com/wiki/recta-numerica/" target="_blank">
+                neurochispas.com
+            </a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Fuentes</h4>
+        <p>
+            Google <br>
+            ChatGPT
+        </p>
+    </div>
+
+</div>
+
+<div class="formulario">
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="number" name="inicio" placeholder="Inicio" required>
+        <input type="number" name="fin" placeholder="Fin" required>
+
+        <button type="submit">Mostrar</button>
+
+        {% if numeros %}
+            <p class="resultado">
+                {% for i in numeros %}
+                    {{ i }}
+                {% endfor %}
+            </p>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <button class="volver">
+            <a href="{% url 'core:core' %}">Ir a Core</a>
+        </button>
+    </form>
+</div>
+
 </body>
 </html>

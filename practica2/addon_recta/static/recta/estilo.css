@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #0ea5a4);
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    color: #ecfeff;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: linear-gradient(145deg, #ccfbf1, #99f6e4);
+    width: 260px;
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h4 {
+    color: #134e4a;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #042f2e;
+    line-height: 1.5;
+}
+
+.card a {
+    color: #0f766e;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+.media {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.media img,
+.media iframe {
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+    max-width: 100%;
+}
+
+.formulario form {
+    background: linear-gradient(135deg, #99f6e4, #5eead4);
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.4);
+    width: 420px;
+}
+
+input {
+    width: 85%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+button {
+    background: #0f766e;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+button:hover {
+    background: #134e4a;
+}
+
+.resultado {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #134e4a;
+}
+
+.error {
+    color: #7c2d12;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.volver a {
+    color: white;
+    text-decoration: none;
+}
