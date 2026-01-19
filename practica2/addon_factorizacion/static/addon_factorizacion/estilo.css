@@ -39,7 +39,7 @@ h1 {
 
 /* TARJETA DESTACADA */
 .destacado {
-    background: linear-gradient(135deg, #fde68a, #facc15);
+    background: linear-gradient(135deg, #a11414, #0c0b50);
     font-size: 20px;
     font-weight: bold;
 }
@@ -80,12 +80,12 @@ h1 {
 }
 
 form {
-    background: linear-gradient(135deg, #bbf7d0, #fde68a);
+    background: linear-gradient(135deg, #a360c2, #df5210);
     padding: 35px;
     width: 420px;
     margin: auto;
     border-radius: 22px;
-    box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 14px 30px rgba(36, 32, 32, 0.25);
     color: #14532d;
 }
 
