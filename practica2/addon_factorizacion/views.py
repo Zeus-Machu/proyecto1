@@ -1,24 +1,35 @@
 from django.shortcuts import render
 import sympy as sp
+from sympy.parsing.sympy_parser import (
+    parse_expr,
+    standard_transformations,
+    implicit_multiplication_application
+)
 
 def factorizacion(request):
     resultado = None
     error = None
 
     if request.method == "POST":
-        expr = request.POST.get("expresion")
+        expr = request.POST.get("expresion", "")
 
         try:
             x = sp.symbols('x')
 
-            # NORMALIZAR la expresión
+            # Transformaciones para aceptar 2x, 3(x+1), etc.
+            transformations = standard_transformations + (
+                implicit_multiplication_application,
+            )
+
             expr = expr.replace("²", "^2")
             expr = expr.replace("^", "**")
-            expr = expr.replace(" ", "")
-            expr = expr.replace("x", "*x").replace("**x", "*x")
-            expr = expr.replace("1*x", "x")
 
-            expresion = sp.sympify(expr)
+            expresion = parse_expr(
+                expr,
+                transformations=transformations,
+                local_dict={"x": x}
+            )
+
             resultado = sp.factor(expresion)
 
         except Exception:

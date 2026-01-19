@@ -3,7 +3,8 @@ body {
     padding: 30px;
     text-align: center;
 
-    background: linear-gradient(135deg, #312e81, #1e40af);
+    /* Fondo rosa pastel con luz */
+    background: linear-gradient(135deg, #fce7f3, #f9a8d4);
 }
 
 h1 {
@@ -12,10 +13,11 @@ h1 {
     margin-bottom: 35px;
     padding: 18px;
 
-    background: linear-gradient(135deg, #7c3aed, #3b82f6);
+    /* Rosa intenso + lavanda */
+    background: linear-gradient(135deg, #ec4899, #f472b6);
     border-radius: 22px;
 
-    box-shadow: 0 16px 34px rgba(0,0,0,0.4);
+    box-shadow: 0 18px 36px rgba(236,72,153,0.45);
 }
 
 .contenedor {
@@ -28,21 +30,22 @@ h1 {
 }
 
 .card {
-    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    /* Cards suaves y limpias */
+    background: linear-gradient(135deg, #fff1f2, #ffe4e6);
     width: 280px;
     padding: 26px;
     border-radius: 26px;
 
-    box-shadow: 0 18px 38px rgba(0,0,0,0.35);
+    box-shadow: 0 18px 34px rgba(244,114,182,0.35);
 }
 
 .card h4 {
-    color: #4338ca;
+    color: #be185d;
     font-size: 24px;
 }
 
 .card p {
-    color: #1e293b;
+    color: #4a044e;
     line-height: 1.5;
 }
 
@@ -50,18 +53,19 @@ h1 {
     width: 560px;
     height: 315px;
     border-radius: 22px;
-    box-shadow: 0 16px 36px rgba(0,0,0,0.45);
+    box-shadow: 0 18px 38px rgba(236,72,153,0.45);
     margin: 40px 0;
 }
 
 .formulario form {
-    background: linear-gradient(135deg, #c7d2fe, #a5b4fc);
+    /* Formulario protagonista */
+    background: linear-gradient(135deg, #fbcfe8, #f9a8d4);
     width: 460px;
     margin: 0 auto 50px;
     padding: 30px;
     border-radius: 26px;
 
-    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    box-shadow: 0 18px 40px rgba(236,72,153,0.45);
 }
 
 input {
@@ -73,10 +77,14 @@ input {
     border: none;
     font-size: 16px;
     text-align: center;
+
+    background: #ffffff;
+    color: #831843;
 }
 
 button {
-    background: #4f46e5;
+    /* Botón destacado */
+    background: linear-gradient(135deg, #db2777, #ec4899);
     color: white;
 
     border: none;
@@ -88,18 +96,18 @@ button {
 }
 
 button:hover {
-    background: #4338ca;
+    background: linear-gradient(135deg, #be185d, #db2777);
 }
 
 .resultado {
     margin-top: 18px;
     font-size: 20px;
     font-weight: bold;
-    color: #1e3a8a;
+    color: #9d174d;
 }
 
 .error {
     margin-top: 12px;
     font-weight: bold;
-    color: #7c2d12;
+    color: #881337;
 }
