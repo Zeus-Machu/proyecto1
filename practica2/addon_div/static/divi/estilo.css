@@ -17,10 +17,10 @@ h1 {
     margin-bottom: 30px;
     padding: 15px;
 
-    background: linear-gradient(135deg, #7c3aed, #db2777);
+    background: linear-gradient(135deg, #7c3aed, #d4317a);
     border-radius: 18px;
 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
 }
 
 /* ===== GRID ===== */
